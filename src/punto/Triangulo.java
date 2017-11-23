@@ -64,4 +64,25 @@ public class Triangulo {
 	public String toString() {
 		return "triangulo["+this.getVertice1()+","+this.getVertice2()+","+this.getVertice3()+"]";
 	}
+	/**
+	 * calcula el perimetro del triangulo 
+	 * @return el valor del diametro
+	 */
+	public double perimetro() {
+		return this.getVertice1().distanciaPunto(this.getVertice2())+this.getVertice2().distanciaPunto(vertice3)
+				+ this.getVertice3().distanciaPunto(this.getVertice1());
+	}
+	/**
+	 * calcula el area del triangulo a traves de formula de heron
+	 * @return area del triangulo
+	 */
+	public double area() {
+		double lado1,lado2,lado3,semiperimetro;
+		lado1=this.getVertice1().distanciaPunto(this.getVertice2());
+		lado2=this.getVertice2().distanciaPunto(this.getVertice3());
+		lado3=this.getVertice3().distanciaPunto(this.getVertice1());
+		semiperimetro=this.perimetro()/2;
+		return Math.sqrt(semiperimetro*(semiperimetro-lado1)*(semiperimetro-lado2)
+				*(semiperimetro-lado3));
+	}
 }

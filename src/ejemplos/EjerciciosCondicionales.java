@@ -1,5 +1,5 @@
 package ejemplos;
-import com.sun.java.accessibility.util.EventID;
+
 	import java.util.Scanner;
 public class EjerciciosCondicionales {
 
