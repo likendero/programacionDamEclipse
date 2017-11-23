@@ -1,0 +1,37 @@
+<calculo1>
+Inicio
+x=2,y=2,z=null;
+x=2,y=2,z=10;
+Salida:
+El resultado es 10
+fin Salida
+fin programa
+<calculo2>
+Inicio
+w=null,x=t,y=t,z=f;
+w=t,x=t,y=t,z=f;
+Salida:
+El resultado es true
+fin Salida
+fin programa
+<calculo3>
+probador=null;
+probador='c';
+Salida:
+probador:c
+fin Salida
+probador='b';
+Salida:
+probador:b
+probador:ba``
+fin Salida
+fin programa
+<calculo4>
+Inicio
+suma=30;
+Salida:
+30 32 32 32
+31
+fin Salida
+fin programa
+
