@@ -22,6 +22,6 @@ public class PruebaPunto {
         punto2.setY(key.nextInt());
         System.out.println("el punto 2 antes valia "+ punto3.toString()+" ahora vale "+punto2.toString());
         System.out.println("distancia del punto 1 al punto 2    "+punto1.distanciaPunto(punto2));
-        System.out.println("el punto medio de punto 1 y punto 3"+ punto1.puntoMedio(punto2).toString());
+        System.out.println("el punto medio de punto 2 y punto 3"+ punto2.puntoMedio(punto2).toString());
     }
 }
