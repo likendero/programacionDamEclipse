@@ -1,0 +1,7 @@
+Crear clase triangulo, 
+Atributos Vertice1 vertice2 Vertice3 <-- Punto
+Constructores
+getters setters
+toString
+perimetro()
+area()

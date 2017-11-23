@@ -1,6 +1,9 @@
 
 package punto;
-
+/*
+ * cuadranteActual();
+ * 
+ */
 /**
  * clase que establece las coordenadas x e y de un punto y opera con ellas
  * @author diurno
@@ -55,15 +58,39 @@ public class Punto {
     public String toString(){
         return "("+this.getX()+","+this.getY()+")";
     }
+    /**
+     * calcula la distancia entre dos puntos 
+     * @param punto2 punto a donde se calcula la distancia
+     * @return distancia con valor real
+     */
     public double distanciaPunto(Punto punto2){
         return Math.sqrt(Math.pow((double)(this.getX()+punto2.getX()),2)+
                 Math.pow((double)(this.getY()+punto2.getY()), 2) );
     }
-    
+    /**
+     * calcula el punto medio entre dos puntos
+     * @param punto2 segundo punto
+     * @return un nuevo punto, el puto medio
+     */
     public Punto puntoMedio(Punto punto2){
         Punto medio=new Punto();
         medio.setX( (this.getX()+punto2.getX())/2 );
         medio.setY((this.getX()+punto2.getX())/2);
         return medio;
+    }
+    /**
+     * dice en que cuadrante esta el punto
+     * @return una cadena indicando el cuadrante
+     */
+    public String cuadranteAcrual() {
+    	if (this.getX()<=0) {
+			if(this.getY()<0) {
+				return "tercer cuadrante";
+			}else return "segundo cuadrante";
+		}else {
+			if(this.getY()<0) {
+				return "cuarto cuadrante";
+			}else return "primer cuadrante";
+		}
     }
 }
