@@ -13,7 +13,8 @@ public class PruebaPunto {
     	introx=key.nextInt();
     	System.out.println("introduce un valor para y");
     	introy=key.nextInt();
-        Punto punto1=new Punto();
+        Punto punto1=new Punto(1,1);
+        Punto prueba=new Punto(3,10);
         Punto punto2=new Punto(introx,introy);
         Punto punto3=new Punto(punto2);
         
@@ -23,5 +24,8 @@ public class PruebaPunto {
         System.out.println("el punto 2 antes valia "+ punto3.toString()+" ahora vale "+punto2.toString());
         System.out.println("distancia del punto 1 al punto 2    "+punto1.distanciaPunto(punto2));
         System.out.println("el punto medio de punto 2 y punto 3"+ punto2.puntoMedio(punto2).toString());
+        
+        System.out.println(punto1.distanciaPunto(prueba));
+        
     }
 }
