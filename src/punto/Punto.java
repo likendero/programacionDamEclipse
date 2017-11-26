@@ -64,8 +64,8 @@ public class Punto {
      * @return distancia con valor real
      */
     public double distanciaPunto(Punto punto2){
-        return Math.sqrt(Math.pow((double)(punto2.getX()-this.getX()),2)+
-                Math.pow((double)(punto2.getY()-this.getY()), 2) );
+        return Math.pow(Math.pow((punto2.getX()-this.getX()),2)+
+                Math.pow((punto2.getY()-this.getY()), 2),(1.0/2.0) );
     }
     /**
      * calcula el punto medio entre dos puntos
