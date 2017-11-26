@@ -85,4 +85,20 @@ public class Triangulo {
 		return Math.sqrt(semiperimetro*(semiperimetro-lado1)*(semiperimetro-lado2)
 				*(semiperimetro-lado3));
 	}
+	/**
+	 * comprueba si es un triangulo con unas coordenadas validas
+	 * @return si no es un triangulo valido devuelve false si si lo fuese true
+	 */
+	public boolean trianguloCorrecto() {
+		// comprobacion si hay 2 vertices igules
+		if (this.getVertice1().equals(this.getVertice2()) || this.vertice2.equals(this.getVertice3()))
+			return false;
+		//comprobacion si los puntos estan en linea im posibilitando el triangulo
+		else if (this.getVertice1().getX()==this.getVertice2().getX() && this.getVertice2().getX()==this.getVertice3().getX()
+				|| this.getVertice1().getY()==this.getVertice2().getY()&& this.getVertice2().getY()== this.getVertice3().getY())
+			return false;
+		//caso contrario a todos los demas
+		else return true;
+		
+	}
 }

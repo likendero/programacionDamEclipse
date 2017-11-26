@@ -59,6 +59,19 @@ public class Punto {
         return "("+this.getX()+","+this.getY()+")";
     }
     /**
+     * clase que compara dos puntos para saber si son el mismo tanto
+     * por su espacio en memoria como por sus parametros
+     * @param punto2 punto con que comparar
+     * @return verdadero si son iguales falso si no lo son
+     */
+    public boolean equal(Punto punto2) {
+    	if(this==punto2)
+    		return true;
+    	else if (this.getX()== punto2.getX() && this.getY()==punto2.getY())
+    		return true;
+    	else return false;
+    }
+    /**
      * calcula la distancia entre dos puntos 
      * @param punto2 punto a donde se calcula la distancia
      * @return distancia con valor real
