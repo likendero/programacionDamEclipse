@@ -14,7 +14,7 @@ public class PruebaPunto {
     	System.out.println("introduce un valor para y");
     	introy=key.nextInt();
         Punto punto1=new Punto(1,1);
-        Punto prueba=new Punto(3,10);
+        Punto prueba=new Punto(3,1);
         Punto punto2=new Punto(introx,introy);
         Punto punto3=new Punto(punto2);
         
