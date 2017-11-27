@@ -65,9 +65,9 @@ public class Punto {
      * @return verdadero si son iguales falso si no lo son
      */
     public boolean equal(Punto punto2) {
-    	if(this==punto2)
+    	/*if(this==punto2)
     		return true;
-    	else if (this.getX()== punto2.getX() && this.getY()==punto2.getY())
+    	else*/ if (this.getX()== punto2.getX() && this.getY()==punto2.getY())
     		return true;
     	else return false;
     }
