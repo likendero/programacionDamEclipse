@@ -1,5 +1,5 @@
 
-package punto;
+package Ejercicio01;
 /*
  * cuadranteActual();
  * 

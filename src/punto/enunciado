@@ -5,3 +5,11 @@ getters setters
 toString
 perimetro()
 area()
+----------------------------
+n triangulos
+calcular la media del perimetro 
+calcular media superficies
+triangulo con mayor superficie
+triangulo con mayor perimetro
+menor perimetro
+menor superficie
