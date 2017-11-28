@@ -2,7 +2,7 @@ package punto;
 	import java.util.Scanner;
 public class PruebaTriangulo {
 	public static void main(String[] args) {
-		Scanner key=new Scanner(System.in);
+		//Scanner key=new Scanner(System.in);
 		//creacion de triangulos 3 constructores
 		Triangulo triangulo1=new Triangulo();
 		Triangulo triangulo2=new Triangulo(new Punto(2,2),new Punto(4,1),new Punto(2,3));
