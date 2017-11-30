@@ -1,5 +1,5 @@
 package Ejercicio03;
-
+	import java.util.Scanner;
 public class Nif {
 	private int numero;
 	private char letra;
@@ -11,7 +11,10 @@ public class Nif {
 		this.numero=0;
 		this.letra=' ';
 	} 
-	
+	/**
+	 * constructor de clase, este constructor solo necesita el numero ya que la letra de autocalcula
+	 * @param numero numero del DNI
+	 */
 	public Nif(int numero) {
 		super();
 		this.numero=numero;
@@ -31,6 +34,37 @@ public class Nif {
 		this.calculoLetra();
 	}
 	
+	public String toString() {
+		String salida="";
+		//comprobacion, validez del numero
+		if(Integer.toString(this.getNumero()).length()<=8 && Integer.toString(this.getNumero()).length()>0 
+				&& this.getNumero()>0 ) {
+			//añadir 0os en el caso que la longitud en caracteres del numero no sea la correcta
+			for(int i=Integer.toString(this.getNumero()).length(); i < 8;i++) {
+				salida+=0;
+			}
+			//proceso de añadir el numero y letra
+			salida+=this.getNumero()+ "-" +this.getLetra();
+			//vuelta del resultado
+			return salida;
+		}
+		//vuelta en el caso que el numero no fuese valido
+		return "numero no valido ";
+	}
+	
+	/**
+	 * metodo que permite cambiar el numero del dni pasandole un valor por consola
+	 * @param key valor introducido por consola(realmente solo es el objeto que permite la entrada de datos)
+	 */
+	public void leer(Scanner key) {
+		System.out.println("por favor escribe un numero entero de no mas de 8 caracteres para el DNI/NIF");
+		this.setNumero(key.nextInt());
+		this.calculoLetra();
+	}
+	/**
+	 * metodo que sirve para establecer la letra del dni a partir del numero ya que a 
+	 * cierto numero solo hay una letra posible.
+	 */
 	private void calculoLetra() {
 		//el numero de dni tiene que ser positivo
 		if(this.numero>=0) {
