@@ -101,8 +101,26 @@ public class Complejos {
 	 * @param divisor numero real entre el que se divide
 	 */
 	public void divisionReal(double divisor) {
+		if(divisor != 0) {
 		this.setA(this.getA()/divisor);
 		this.setB(this.getB()/divisor);
+		}
+	}
+	public void dividionComplejos(Complejos complejo2) {
+		Complejos auxiliar=new Complejos(this);
+		double realAux=0;
+		auxiliar.productoComplejos(complejo2.conjugado());
+		complejo2.productoComplejos(complejo2.conjugado());
+		realAux=complejo2.getB();
+		
+		
+	}
+	/**
+	 * metodo que calcula el conjugado del numero complejo
+	 * @return otro numero complejo
+	 */
+	public Complejos conjugado() {
+		return new Complejos(this.getA(),-this.getB());
 	}
 	
 	

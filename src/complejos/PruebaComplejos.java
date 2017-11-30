@@ -10,7 +10,10 @@ public class PruebaComplejos {
 		System.out.println("primer imaginario " + imaginario1.toString());
 		System.out.println("segundo imaginario " + imaginario2.toString());
 		System.out.println("tercer iamginario " + imaginario3.toString());
-		
+		//igualdad
+		System.out.println("comparacion 1 con 2 y 2 con 3");
+		System.out.println(imaginario1.igualdad(imaginario2)?"imaginario 1 y 2 son iguales":"imaginario 1 y 2 son distintos");
+		System.out.println(imaginario2.igualdad(imaginario3)?"imaginario 2 y 3 son igules":"imaginario 2 y 3 son distintos");
 		//prueba operaciones
 		//getters setters
 		imaginario1.setA(3.0);
@@ -28,5 +31,12 @@ public class PruebaComplejos {
 		//multiplicacion complejos
 		imaginario3.productoComplejos(imaginario2);
 		System.out.println("tercer comlejo por segundo complejo " + imaginario3.toString());
+		//conjugado
+		Complejos complejo4= new Complejos(3,4);
+		Complejos complejo5= new Complejos(3,-5);
+		System.out.println("complejo4 "+ complejo4.toString());
+		System.out.println("complejo5 "+ complejo5.toString());
+		System.out.println("complejo4 conjugado "+ complejo4.conjugado().toString());
+		System.out.println("complejo5 conjugado "+ complejo5.conjugado().toString());
 	}
 }

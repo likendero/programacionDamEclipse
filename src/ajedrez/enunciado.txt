@@ -1,0 +1,19 @@
+crear
+clase rey{
+	color color <== enumerado
+	posicion posicion
+	consdef pos e1  blanco 
+	cons clase color si negro e8 si blanco e1
+	
+}
+clase color {
+final BLANCO
+final NEGRO
+
+}
+clase posicion{
+	entero filas
+	caracter columnas
+	getters setters
+	
+}
