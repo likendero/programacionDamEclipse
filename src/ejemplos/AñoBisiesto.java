@@ -1,7 +1,7 @@
 package ejemplos;
 import java.util.Scanner;
 
-public class AñoBisiesto {
+public class AnnoBisiesto {
 	public static void main(String[] args) {
 		Scanner key=new Scanner(System.in);
 		int anno=0;
