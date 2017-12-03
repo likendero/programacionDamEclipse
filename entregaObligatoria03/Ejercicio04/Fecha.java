@@ -103,9 +103,9 @@ public class Fecha {
 	public void leer(java.util.Scanner key) {
 		System.out.print("introduce un año: ");
 		this.setAnno(key.nextShort());
-		System.out.print("\n introduce mes: ");
+		System.out.print("\nintroduce mes: ");
 		this.setMes(key.nextByte());
-		System.out.print("\n introduce dia: ");
+		System.out.print("\nintroduce dia: ");
 		this.setDia(key.nextByte());
 		//validacion para que no halla valores fuera de rango
 		this.valida();
@@ -282,6 +282,8 @@ public class Fecha {
 	 * @return numero de dias
 	 */
 	public int diasEntre(Fecha fecha2) {
+		if(this.corta().equals("01-01-1900"))
+			return fecha2.diasTranscurridos();
 		//variable para sumar los dias acumulados
 				int diasAcumulados=0;
 				//bucle que suma los dias de cada año

@@ -5,6 +5,7 @@ public class PruebaFecha {
 		Scanner key = new Scanner(System.in);
 		Fecha fecha1 = new Fecha();
 		Fecha fecha2 = new Fecha(4,5,1975);
+		Fecha fecha5= new Fecha(4,5,1976);
 		Fecha fecha3 = new Fecha();
 		
 		//leer
@@ -22,6 +23,8 @@ public class PruebaFecha {
 		//dias transcurridos
 		System.out.println("dias transcurridos hasta fecha2 "+ fecha2.diasTranscurridos());
 		System.out.println("dias entre fecha1 fecha2 "+ fecha1.diasEntre(fecha2));
+		System.out.println("dias entre fecha2 y fecha5 "+ fecha2.diasEntre(fecha5));
+		
 		//dia dia siguiente y anterior
 		fecha3.siguiente();
 		System.out.println("dia siguiente a fecha3 "+ fecha3.corta() );
@@ -30,7 +33,7 @@ public class PruebaFecha {
 		fecha3.anterior();
 		System.out.println("fecha3 3 dias atras "+ fecha3.corta());
 		//comaparaciones
-		Fecha fecha4 = new Fecha((byte)4,(byte)5,(short)2020);
+		Fecha fecha4 = new Fecha(4,5,2020);
 		System.out.println("1-1-1900 es a 4-5-2020 ");
 		System.out.println(fecha1.menorQue(fecha4)?"menor":"mayor");
 		System.out.println(fecha1.mayorQue(fecha4)?"mayor":"menor");
