@@ -17,3 +17,4 @@ clase posicion{
 	getters setters
 	
 }
+crear un main que con un  menu mueva un rey
