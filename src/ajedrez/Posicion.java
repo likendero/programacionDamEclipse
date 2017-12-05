@@ -55,28 +55,36 @@ public class Posicion {
 		 */
 		switch(this.getColumna()) {
 		case 'A': case 'a':
-			this.setColumna('a');
+			if(this.getColumna()=='A')
+				this.setColumna('a');
 			break;
 		case 'B': case 'b':
-			this.setColumna('b');
+			if(this.getColumna()=='B')
+				this.setColumna('b');
 			break;
 		case 'C': case 'c':
-			this.setColumna('c');
+			if(this.getColumna()=='C')
+				this.setColumna('c');
 			break;
 		case 'D': case 'd':
-			this.setColumna('d');
+			if(this.getColumna()=='D')
+				this.setColumna('d');
 			break;
 		case 'E': case 'e':
-			this.setColumna('e');
+			if(this.getColumna()=='E')
+				this.setColumna('e');
 			break;
 		case 'F': case 'f': 
-			this.setColumna('f');
+			if(this.getColumna()=='F')
+				this.setColumna('f');
 			break;
 		case 'G': case 'g':
-			this.setColumna('g');
+			if(this.getColumna()=='G')
+				this.setColumna('g');
 			break;
 		case 'H': case 'h':
-			this.setColumna('h');
+			if(this.getColumna()=='H')
+				this.setColumna('h');
 			break;
 		default:
 			this.setColumna('a');
