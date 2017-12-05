@@ -47,6 +47,12 @@ public class Posicion {
 		if (fila>8 && fila<=0) {
 			this.setFila(1);
 		}
+		/*
+		 * switch con doble funcion:
+		 * - comprobar que el parametro es valido y en el caso que no lo sea
+		 *   pasar a un valor por defecto
+		 * - estandarizar la columna a minusculas para un manejo mas sencillo
+		 */
 		switch(this.getColumna()) {
 		case 'A': case 'a':
 			this.setColumna('a');
