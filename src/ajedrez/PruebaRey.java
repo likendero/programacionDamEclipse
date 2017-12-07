@@ -18,6 +18,7 @@ public class PruebaRey {
 			System.out.println("mover suroeste 		c");
 			System.out.println("acabar movimientos 	f");
 			movimiento=key.next().charAt(0);
+			//SELECCION
 			switch(movimiento) {
 			case 'w': case 'W':
 				reyBlanco.mueve(Direccion.NORTE);
