@@ -53,7 +53,7 @@ public class Fecha {
 	 * sus valores no fuese bueno lo sustituye por un valor por defecto
 	 */
 	public void valida() {
-		//comprobacion que el año esta en rango
+		//comprobacion que el aï¿½o esta en rango
 		if(this.getAnno()<1900 || this.getAnno()>2050)
 			this.setAnno(1900);
 		//caomprobacion que el mes esta en rango
@@ -81,7 +81,7 @@ public class Fecha {
             	this.setDia(1);
             break;
         case 2:
-        	// comprobacion de año bisiesro
+        	// comprobacion de aï¿½o bisiesro
             if(this.getAnno()%400==0 || this.getAnno()%4==0 && this.getAnno()%100!=0) {
             	//comprobacion del rango de los dias de 29
             	if(this.getDia()<1 && this.getDia()>29)
@@ -96,12 +96,12 @@ public class Fecha {
 	}
 	}
 	/**
-	 * metodo que a traves de una entrada por teclado introduce dia,mes y año
+	 * metodo que a traves de una entrada por teclado introduce dia,mes y aï¿½o
 	 * al final valida todos los datos
 	 * @param key entrada por teclado
 	 */
 	public void leer(java.util.Scanner key) {
-		System.out.print("introduce un año: ");
+		System.out.print("introduce un aï¿½o: ");
 		this.setAnno(key.nextShort());
 		System.out.print("\nintroduce mes: ");
 		this.setMes(key.nextByte());
@@ -112,7 +112,7 @@ public class Fecha {
 		
 	}
 	/**
-	 * metodo que indica si el año es bisiesto o no
+	 * metodo que indica si el aï¿½o es bisiesto o no
 	 * @return true si es bisiesto false si no lo es
 	 */
 	public boolean bisiesto() {
@@ -147,7 +147,7 @@ public class Fecha {
         case 11:
         	return 30;
         case 2:
-        	// comprobacion de año bisiesto
+        	// comprobacion de aï¿½o bisiesto
             if(this.getAnno()%400==0 || this.getAnno()%4==0 && this.getAnno()%100!=0) 
             	return 29;
         	return 28;
@@ -161,7 +161,7 @@ public class Fecha {
 	 * @return formato dia-mes-anno
 	 */
 	public String corta() {
-		//formateo para el para añadir un cero en mes o dia si es necesario
+		//formateo para el para aï¿½adir un cero en mes o dia si es necesario
 		String salida="";
 		if(Integer.toString(this.getDia()).length()==1) salida+="0"+this.getDia()+"-";
 		else salida+=this.getDia()+"-";
@@ -178,7 +178,7 @@ public class Fecha {
 	public int diasTranscurridos() {
 		//variable para sumar los dias acumulados
 		int diasAcumulados=0;
-		//bucle que suma los dias de cada año
+		//bucle que suma los dias de cada aï¿½o
 		for(int i=1901; i<this.getAnno();i++) {
 			if(i%400 == 0 || i%4 == 0 && i%100 != 0)diasAcumulados+=366;
 			else diasAcumulados+=365;
@@ -257,7 +257,7 @@ public class Fecha {
 	/**
 	 * metodo que formatea una salida larga para la fecha "a modo de frase"
 	 * 
-	 * @return nombreDia numeroDia de nombreMes de numeroAño
+	 * @return nombreDia numeroDia de nombreMes de numeroAï¿½o
 	 */
 	public String larga() {
 		return this.diaSemana() + " " + this.getDia() + " de "
@@ -286,7 +286,7 @@ public class Fecha {
 			return fecha2.diasTranscurridos();
 		//variable para sumar los dias acumulados
 				int diasAcumulados=0;
-				//bucle que suma los dias de cada año
+				//bucle que suma los dias de cada aï¿½o
 				for(int i=this.getAnno(); i<fecha2.getAnno();i++) {
 					if(i%400 == 0 || i%4 == 0 && i%100 != 0)diasAcumulados+=366;
 					else diasAcumulados+=365;
