@@ -101,12 +101,14 @@ public class PracticaArrays {
 	public static void ejercicio7() {
 		String nombres[] ;
 		int longitudNombre[],tamanno;
+		//introduccion del numero de nombres a introducir
 		do {
 			System.out.println("introduce el numero de nombres");
 			tamanno=key.nextInt();
 		}while(tamanno<=0);
 		nombres = new String[tamanno];
 		longitudNombre = new int[tamanno];
+		
 		for (int i = 0; i < longitudNombre.length; i++) {
 			System.out.print("introduce el nombre nº " + (i+1) + ": ");
 			nombres[i] = key.nextLine();

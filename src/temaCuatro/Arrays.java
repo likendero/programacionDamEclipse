@@ -1,10 +1,15 @@
 package temaCuatro;
 	import java.util.Scanner;
+	
 public class Arrays {
 	static Scanner key = new Scanner(System.in);
 	public static void main(String[] args) {
 		//tiempo();
-		copiaArray();
+		//copiaArray();
+		//arrayBidimensional();
+		//arrayBidimensional2();
+		arrayBidimensional3();
+		//arrayBidimensional4();
 	}
 	/*
 	 * metodo statico que coge los valores para todos los dias de noviembre
@@ -48,4 +53,72 @@ public class Arrays {
 				System.out.println("array2["+i+"]= "+array2[i]);
 			}
 			}
+	/*
+	 * array Bidimensional introduciendo valores direcctamente
+	 */
+	public static void arrayBidimensional() {
+		int arrayBi[][] = {{0,1,2,3,4},
+					       {5,6,7,8,9},
+					       {10,11,12,13,14},
+					       {15,16,17,18,19}
+							};	
+		for (int i = 0; i < arrayBi.length; i++) {
+			for (int j = 0; j < arrayBi[i].length; j++) {
+				System.out.print(arrayBi[i][j] + "	");
+			}
+		System.out.println();
+		}
+	}
+	/*
+	 * array bidimensional con secuencia de numeros
+	 */
+	public static void arrayBidimensional2() {
+		int arrayBi[][] = new int[4][5];
+		int a=0;
+		//introduccion de datos
+		for (int i = 0; i < arrayBi.length; i++) {
+			for (int j = 0; j < arrayBi[i].length; j++) {
+				arrayBi[i][j] = a++;
+			}
+		}
+		//salida de datos
+		for (int i = 0; i < arrayBi.length; i++) {
+			for (int j = 0; j < arrayBi[i].length; j++) {
+				System.out.print(arrayBi[i][j] + "	");
+			}
+		System.out.println();
+		}
+		
+	}
+	public static void arrayBidimensional3() {
+		int arrayBi[][] = new int[4][5];
+		int a=0;
+		//introduccion de datos
+		for (int i = 0; i < arrayBi[1].length; i++) {
+			for (int j = 0; j < arrayBi.length; j++) {
+				arrayBi[j][i] = a++;
+			}
+		}
+		//salida de datos
+		for (int i = 0; i < arrayBi.length; i++) {
+			for (int j = 0; j < arrayBi[i].length; j++) {
+				System.out.print(arrayBi[i][j] + "	");
+			}
+		System.out.println();
+		}
+	}
+	public static void arrayBidimensional4() {
+		int arrayBi[][] = {{0,1,2,3,4},
+					       {5,6,7,8,9},
+					       {10,11,12,13,14},
+					       {15,16,17,18,19}
+							};	
+		for (int i = 0; i < arrayBi[1].length; i++) {
+			for (int j = 0; j < arrayBi.length; j++) {
+				System.out.print(arrayBi[j][i] + "	");
+			}
+		System.out.println();
+		}
+	}
+		
 		}
