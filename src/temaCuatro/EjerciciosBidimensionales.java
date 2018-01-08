@@ -10,7 +10,8 @@ import java.util.Scanner;
 public class EjerciciosBidimensionales {
 	static Scanner key = new Scanner(System.in);
 	public static void main(String[] args) {
-		mediaAlumnos();
+		//mediaAlumnos();
+		tablaNotas();
 	}
 	/*
 	 * hace la media de las notas de un grupo de alumnos
@@ -71,6 +72,7 @@ public class EjerciciosBidimensionales {
 	 */
 	public static void tablaNotas() {
 		int notasAlumno[][], entrada;
+		//validacion numero de alumnos
 		do {
 			System.out.println("el numero de alumnos");
 			entrada = key.nextInt();
@@ -81,11 +83,32 @@ public class EjerciciosBidimensionales {
 				notasAlumno[i][j] = (int)(Math.random()*10+1);
 			}
 		}
+		//mostrar notas introducidas
+		
 		for (int i = 0; i < notasAlumno.length; i++) {
-			for (int[] is : notasAlumno) {
-				
+			System.out.println("nota alumno " + i);
+			for (int j = 0; j < notasAlumno[i].length; j++) {
+				System.out.print(notasAlumno[i][j] + "	");
+			}
+			System.out.println();
+		}
+		int media = 0;
+		for (int i = 0; i < notasAlumno[1].length; i++) {
+			
+			for (int j = 0; j < notasAlumno.length; j++) {
+				media += notasAlumno[j][i];
+			}
+			media /= notasAlumno.length;
+			System.out.println("media asignatura "+ i + ": " + media);
+		} 
+		media = 0;
+		for (int i = 0; i < notasAlumno.length; i++) {
+			for (int j = 0; j < notasAlumno[i].length; j++) {
+				media += notasAlumno[i][j];
 			}
 		}
+		media /=notasAlumno.length * notasAlumno[1].length;
+		System.out.println("media del curso: " + media);
 	}
 }
 

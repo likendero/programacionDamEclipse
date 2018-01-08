@@ -91,7 +91,7 @@ public class Arrays {
 		
 	}
 	/*
-	 * entraada y salida por columnas
+	 * entraada y salida por columnas   
 	 */
 	public static void arrayBidimensional3() {
 		int arrayBi[][] = new int[4][5];
