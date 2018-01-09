@@ -35,14 +35,43 @@ public class OrdenadorArrays {
 	}
 	/**
 	 * ordena un array metodo burbuja
+	 * @param array 
 	 */
 	public static void burbuja(int[] array) {
-		for (int j = 0; j < array.length ; j++)
+		//for que repite el proceso tantas beces como posiciones halla
+		for (int j = 0; j < array.length-1 ; j++)
+			//for que recorre el array
 		for (int i = 0; i < array.length-1; i++) {
+			//comparacion de la posicion actual con la siguiente
 			if(array[i+1] < array[i]) {
+				//intercambio de valores en el caso que el array siguiente sea menor que el anterior
 				int aux = array[i];
 				array[i] = array[i+1];
 				array[i+1] = aux;
+			}
+		}
+	}
+	/**
+	 * metodo que usa el metodo de burbuja pero para cuando ya esta
+	 * ordenado
+	 * @param array
+	 */
+	public static void burbujaMejorado(int[] array) {
+		//variable que controla el estado del array
+		boolean control = true;
+		//for que repite el proceso tantas beces como posiciones halla
+		for (int j = 0; j < array.length-1 && control ; j++) {
+			//for que recorre el array
+			control = false;
+			for (int i = 0; i < array.length-1-j; i++) {
+				//comparacion de la posicion actual con la siguiente
+				if(array[i+1] < array[i]) {
+					//intercambio de valores en el caso que el array siguiente sea menor que el anterior
+					int aux = array[i];
+					array[i] = array[i+1];
+					array[i+1] = aux;
+					control = true;
+				}
 			}
 		}
 	}
