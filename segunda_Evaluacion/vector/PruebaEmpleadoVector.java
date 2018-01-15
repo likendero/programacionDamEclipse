@@ -1,7 +1,8 @@
 package vector;
 	import java.util.Iterator;
-import java.util.Scanner;
+	import java.util.Scanner;
 	import java.util.Vector;
+	import java.util.Enumeration;
 		/*
 		 * crear un vector de empleados con capacidad inicial 5
 		 * con crecimiento 5 y que despues muestre los datos y diga las dimensiones
@@ -53,23 +54,45 @@ public class PruebaEmpleadoVector {
 		for (Empleado empleado : administracion) {
 			System.out.println(empleado.toString());
 		}
+		
+		//creacion del iterador
+		Iterator<Empleado> iterador = empleados.iterator();
+		System.out.println("ITERATOR");
+		//salida de los empleados con la interfaz iterador
+		while(iterador.hasNext()) {
+			System.out.println(iterador.next().toString());
+		}
+		//enumeracion
+		System.out.println("ENUMERACION");
+		Enumeration<Empleado> enumeracion = empleados.elements();
+		while(enumeracion.hasMoreElements()) {
+			System.out.println(enumeracion.nextElement().toString());
+		}
 	}
+	
+	
 	/*
 	 * metodo que sirve para introducir todos los datos de un empleado
 	 */
 	public static Empleado datos() {
 		int selector = 0;
+		//se crea un empleado para la salida
 		Empleado nuevoEmpleado = new Empleado();
+		//nombre
 		System.out.println("introduce el nombre");
 		nuevoEmpleado.setNombre(key.next());
+		//direccion
 		System.out.println("introduce direccion");
 		nuevoEmpleado.setDireccion(key.next());
+		//telefono
 		System.out.println("introduce telefono");
 		nuevoEmpleado.setTelefono(key.nextInt()+"");
+		//nif
 		System.out.println("introduce nif");
 		nuevoEmpleado.setNif(key.next());
+		//especialidad
 		do{
-			//slector
+			//selector
 			System.out.println("selecione la especialidad");
 			System.out.println("1 para administracion");
 			System.out.println("2 para mecanica");
@@ -77,6 +100,7 @@ public class PruebaEmpleadoVector {
 			System.out.println("4 para inforematica");
 			System.out.println("5 para sanidad");
 			selector = key.nextInt();
+			//inicio switch
 			switch(selector) {
 			case 1:
 				nuevoEmpleado.setEspecialidad(Especialidades.ADMINISTRACION);
