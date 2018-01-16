@@ -51,6 +51,18 @@ public class RecorridoArrayList {
 		while(enumerable.hasMoreElements()) {
 			System.out.print((String)enumerable.nextElement() + " ");
 		}
+		System.out.println();
+		//foreach
+		/*
+		 * foreach es de los recursos mas sencillos para recorrer una coleccion
+		 * consiste en crear una variable que va cogiendo los valores de la coleccion
+		 * en este caso un ArrayList
+		 */
+		System.out.println("foreach");
+		for (String string : listaCad) {
+			System.out.print(string + " ");
+		}
+		System.out.println();
 	}
 	
 }
