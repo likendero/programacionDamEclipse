@@ -39,8 +39,12 @@ public class RecorridoArrayList {
 		System.out.println();
 		//enumerable
 		/*
-		 * la forma de funcionar de la interfaz enumerable es muy parecida a la 
-		 * 
+		 * el metodo usado en iterable el muy parecido al que hay que usar en la interfaz 
+		 * enumerable con la diferencia que esta ultima no esta integrada en arrayList
+		 * por lo tante nos vemos obligados a pasarle los valores a enumerable a trabes
+		 * de la creacion de un vector que tiene por parametro nuestra lista ya que esta 
+		 * es una coleccion parametro que si acepta vector, una vez llegado hasta aqui es 
+		 * posible usar la interfaz enumerable de vector 
 		 */
 		Enumeration<String> enumerable = new Vector<String>(listaCad).elements();
 		System.out.println("enumerable");
