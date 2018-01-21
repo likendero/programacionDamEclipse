@@ -2,11 +2,17 @@ package arrayList;
 	import java.util.ArrayList;
 	import java.util.Vector;
 	import java.util.Scanner;
+	/**
+	 * 
+	 * @author likendero
+	 * La funcion de esta clse es probar todos los metodos de array list
+	 * 
+	 */
 public class PrimeraPruebaArrayList {
 	private static Scanner key = new Scanner(System.in);
 	public static void main(String[] args) {
 		//prueba costructores
-		//con tamaño definido
+		//con tamaï¿½o definido
 		ArrayList<Integer> lista = new ArrayList<Integer>(20);
 		//con coleccion por parametro
 		ArrayList<Integer> lista2 = new ArrayList<Integer>(new Vector<Integer>());
@@ -62,7 +68,7 @@ public class PrimeraPruebaArrayList {
 		}
 		System.out.println();
 		
-		//tamaños tras introducir
+		//tamaï¿½os tras introducir
 		System.out.println("size lista " + lista.size());
 		System.out.println("size lista2 "  +lista2.size());
 		System.out.println("size lista3 " + lista3.size());
@@ -79,13 +85,13 @@ public class PrimeraPruebaArrayList {
 		/*
 		 * aunque en un array liste se puede definir el nuemero de datos
 		 * y este es dinamico no tiene metodo que devuelva esta cantidad
-		 * pero se puede usar el metodo ensureCapacity para definir un tamaño
+		 * pero se puede usar el metodo ensureCapacity para definir un tamaï¿½o
 		 */
 		//prueba de ensureCapacity
 		System.out.println("aplicando ensureCapacity a lista 2");
 		lista2.ensureCapacity(30);
 		/*
-		 * el metodo trimToSize iguala el tamaño total al numero de elementos
+		 * el metodo trimToSize iguala el tamaï¿½o total al numero de elementos
 		 */
 		//prueba trim to size
 		System.out.println("lista 2 trimToSize ");
