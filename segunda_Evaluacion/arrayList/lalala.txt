@@ -1,0 +1,5 @@
+DNI,nombre,apellidos,edad,empresa(a/b)
+
+-dada una empresa(A/B) todos los datos de los empleados de la empresa
+-dadas las edades di quien es el mas mayor y el mas joven(si hay variso todos)
+-crear un array con los empleados de cada empresa
