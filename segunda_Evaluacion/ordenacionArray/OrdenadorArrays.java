@@ -39,7 +39,7 @@ public class OrdenadorArrays {
 	 */
 	public static void burbuja(int[] array) {
 		//for que repite el proceso tantas beces como posiciones halla
-		for (int j = 0; j < array.length-1 ; j++)
+		for (int j = 0; j < array.length ; j++)
 			//for que recorre el array
 		for (int i = 0; i < array.length-1; i++) {
 			//comparacion de la posicion actual con la siguiente
