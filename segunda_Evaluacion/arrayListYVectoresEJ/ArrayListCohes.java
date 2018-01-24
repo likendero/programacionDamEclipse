@@ -17,12 +17,12 @@ public class ArrayListCohes {
 			System.out.println("2. añadir 10 coches genericos");
 			System.out.println("3. modificar un coche");
 			System.out.println("4. msotrar un coche");
-			System.out.println("5. mostrar todos los coches");
+			System.out.println("5. mostrar todos los coches");//el array esta ordenado, siempre da los coches por orden de km
 			System.out.println("6. coches de una marca");
 			System.out.println("7. coches con menos de un kilometraje determinado");
 			System.out.println("8. matricula y marca +kilometros");
 			System.out.println("9. los coches con un mismo combustible");
-			System.out.println("10. salida por numero de kilometros");
+			//System.out.println("10. salida por numero de kilometros");
 			System.out.println("0. fin del programa");
 			selector = key.nextInt();
 			//seleccion de opccion
@@ -53,6 +53,9 @@ public class ArrayListCohes {
 				break;
 			case 8:
 				mMMaskm(coches);
+				break;
+			case 9:
+				cochesMismoComb(coches);
 				break;
 			};
 			
@@ -263,6 +266,40 @@ public class ArrayListCohes {
 		System.out.println("matricula: " + coches.get(coches.size()-1).getMatricula() + " marca: " 
 		+ coches.get(coches.size()-1).getMarca() + " con " + coches.get(coches.size()-1).getKilometraje() 
 		+ " kilometros" );
+	}
+	/**
+	 * metodo que muestra los coches con un mismo combustible
+	 * @param coches
+	 */
+	public static void cochesMismoComb(ArrayList<Coche> coches) {
+		Combustible combus = null;
+		int selector2 = 0;
+		//seleccion de filtro
+		do {
+			
+				System.out.println("tipo de combustible a filtrar");
+				System.out.println("1 para diesel, 2 para gasolina, 3 para electrico");
+				selector2 = key.nextInt();
+				switch(selector2) {
+				case 1:
+					combus = Combustible.DIESEL;
+					break;
+				case 2:
+					combus = Combustible.GASOLINA;
+					break;
+				case 3:
+					combus = Combustible.ELECTRICO;
+					break;
+				};
+		}while(combus == null);
+		for (Iterator iterator = coches.iterator(); iterator.hasNext();) {
+			Coche coche = (Coche) iterator.next();
+			//filtro segun combustible
+			if(coche.getCombustible() == combus) {
+				System.out.println(coche.toString());
+			}
+			
+		}
 	}
 	
 	
