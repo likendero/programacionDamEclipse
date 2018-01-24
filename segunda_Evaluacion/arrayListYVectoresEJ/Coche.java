@@ -95,8 +95,8 @@ public class Coche {
 	
 	public String toString() {
 		return "el coche: " + this.getMatricula() + " marca: " + this.getMarca() 
-				+ " modelo "+ this.getModelo() + " combustible: " + this.getCombustible() 
-				+ " Kilometraje: " + this.getKilometraje();
+				+ " modelo: "+ this.getModelo() + " combustible: " + this.getCombustible() 
+				+ "\n Kilometraje: " + this.getKilometraje();
 	}
 	
 	public static void burbujaMejorado(ArrayList<Coche> array) {
@@ -117,6 +117,29 @@ public class Coche {
 				}
 			}
 		}
+	}
+	/**
+	 * metodo que implementa un menu para la seleccion de combustible
+	 * @param coche
+	 * @param key
+	 */
+	public static void selectorCombustible(Coche  coche, java.util.Scanner key) {
+		int selector2 = 0;
+		do {
+		
+		System.out.println("1 para diesel, 2 para gasolina, 3 para electrico");
+		selector2 = key.nextInt();
+		switch(selector2) {
+		case 1:
+			coche.setCombustible(Combustible.DIESEL);
+			break;
+		case 2:
+			coche.setCombustible(Combustible.GASOLINA);
+			break;
+		case 3:
+			coche.setCombustible(Combustible.ELECTRICO);
+		};
+		}while(selector2 < 1 || selector2 > 3);
 	}
 }
 
