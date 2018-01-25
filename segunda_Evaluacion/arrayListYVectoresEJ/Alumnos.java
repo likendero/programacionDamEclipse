@@ -96,11 +96,7 @@ public class Alumnos {
 		this.asignaturas = asignaturas;
 	}
 	//########################################################################
-	/**
-	 * metodo que añade un vector de notas a cierta asignatura
-	 * @param notas
-	 * @param asignatura
-	 */
+	
 	public String toString() {
 		//string para la salida
 		//datos generales del alumno
@@ -110,21 +106,28 @@ public class Alumnos {
 		//recorrido asignaturas
 		for (Iterator<Asignatura> iterator = asignaturas.iterator(); iterator.hasNext();) {
 			Asignatura asignatura = (Asignatura) iterator.next();
-			salida += "nombre Asignatura: " + asignatura.nombre;
+			salida += "nombre Asignatura: " + asignatura.nombre + " ";
 			//recorrido notas
-			for (Iterator<Integer> iterator2 = asignatura.getNotas().iterator();iterator.hasNext();) {
-				Integer entero = (Integer) iterator2.next();
-				salida += entero.intValue() + ", ";
+			for(Integer integer : asignatura.getNotas()) {
+				salida += integer.intValue() + ", ";
 			}
 			//al final annade la tona final
-			salida += "la nota media es" + asignatura.notaMedia();
+			salida += " la nota media es " + asignatura.notaMedia();
 			salida += '\n';
 		}
 		salida += "nota final: " + this.getNotaFinal();
 		return salida;
 	}
 	/**
-	 * metodo que sirve para añadir notas en forma de coleccion
+	 * metodo que devuelve una cadena con los datos basicos del alumno
+	 * @return
+	 */
+	public String datosAlumno() {
+		return "alumno: " + this.getNombre() + " " + this.getApellido() + " genero: " + this.getGenero()
+		+  " condicion: " + this.getCondicion() + " notaFinal: " + this.getNotaFinal();
+	}
+	/**
+	 * metodo que sirve para aï¿½adir notas en forma de coleccion
 	 * @param notas
 	 * @param asignatura
 	 */
@@ -141,19 +144,140 @@ public class Alumnos {
 		this.asignaturas.get(asignatura).getNotas().add(new Integer(nota));
 		calculadorNotaFinal();
 	}
+	/**
+	 * metodo que calcula nota final
+	 */
 	private void calculadorNotaFinal() {
 		//calculo notaFinal, media de las notas medias
 				for (Iterator<Asignatura> iterator = this.asignaturas.iterator(); iterator.hasNext();) {
 					Asignatura asignatura = (Asignatura) iterator.next();
 					notaFinal += asignatura.notaMedia();
 				}
-				notaFinal /= asignaturas.size();
+				notaFinal /= this.getAsignaturas().size();
+	}
+	/**
+	 * metodo que sirve para seleccionar la 
+	 * condcion de una instancia de alumno
+	 * @param key
+	 */
+	public  void selectorDeCondicion(java.util.Scanner key) {
+		int selector2;
+		do {
+			//introduccion
+			System.out.println("introduce 1 para Presencial y 2 para Semipresencial");
+			selector2 = key.nextInt();
+			
+			switch(selector2) {
+			case 1:
+				this.setCondicion(Condicion.PRESENCIAL);
+				break;
+			case 2:
+				this.setCondicion(Condicion.SEMIPRESENCIAL);
+				break;
+			};
+		//control
+		}while(selector2 > 2 || selector2 < 1 );
+	}
+	/**
+	 * metodo que sirve para introducir el genero a una instancia de 
+	 * Alumno
+	 * @param key
+	 */
+	public void selectorGenero(java.util.Scanner key) {
+		int selector2;
+		do {
+			System.out.println("1 para hombre 2 para mujer");
+			selector2 = key.nextInt();
+			
+			switch(selector2) {
+			case 1:
+				this.setGenero(Genero.H);
+				break;
+			case 2:
+				this.setGenero(Genero.M);
+				break;
+			}
+		}while(selector2 < 1 || selector2 > 2);
+		
+	}
+	
+	public void annadirAsignaturas(java.util.Scanner key) {
+		int selector2 = 0;
+		boolean fin = false;
+		String nombreAsig = "";
+		Vector<Integer> notas = new Vector<Integer>();
+		do {
+			
+			
+			//selector annadir asignatura
+			System.out.println("1 para nueva asignatura 2 para terminar");
+			selector2 = key.nextInt();
+			
+			switch(selector2) {
+			case 1:
+				//nombre de la asignatura
+				System.out.println("introduce el nombre de la asignatura");
+				nombreAsig = key.next();
+				do {
+					//elegir annadir asignatura o no annadir ninguna mas
+					System.out.println("introduce 1 para annadir nota introduce 2 para teminar");
+					selector2 = key.nextInt();
+					switch(selector2) {
+					case 1:
+						do {
+							System.out.println("introduce nota");
+							selector2 = key.nextInt();
+						}while(selector2 > 10 || selector2 < 1);
+						notas.add(new Integer(selector2));
+						break;
+					case 2:
+						fin = true;
+						break;
+					};
+				
+				
+				
+				}while(!fin);
+				//annadir la asignatura
+				this.getAsignaturas().add(new Asignatura(nombreAsig,notas));
+				//reseteo del fin 
+				fin = false;
+				break;
+			case 2:
+				fin = true;
+				break;
+			}
+		}while(!fin);
+		this.calculadorNotaFinal();
+	}
+	/**
+	 * metodo que ordena un vector de alumnos segun nota final
+	 * @param vectorAlumn
+	 */
+	public static void burbujaMejoradoAlumnos(Vector<Alumnos> vectorAlumn) {
+		//variable que controla el estado del array
+		boolean control = true;
+		//for que repite el proceso tantas beces como posiciones halla
+		for (int j = 0; j < vectorAlumn.size()-1 && control ; j++) {
+			//for que recorre el array
+			control = false;
+			for (int i = 0; i < vectorAlumn.size()-1-j; i++) {
+				//comparacion de la posicion actual con la siguiente
+				if(vectorAlumn.get(i+1).getNotaFinal() < vectorAlumn.get(i).getNotaFinal()) {
+					//intercambio de valores en el caso que el array siguiente sea menor que el anterior
+					Alumnos aux = new Alumnos(vectorAlumn.get(i));
+					vectorAlumn.set(i, vectorAlumn.get(i+1));
+					vectorAlumn.set(i+1, aux);
+					control = true;
+				}
+			}
+		}
 	}
 	/**
 	 * metodo que ordena las asignaturas segun nota media
 	 * @param vectorAsig
 	 */
-	public static void burbujaMejorado(Vector<Asignatura> vectorAsig) {
+	public static void burbujaMejoradoAsignaturas(Vector<Asignatura> vectorAsig) {
 		//variable que controla el estado del array
 		boolean control = true;
 		//for que repite el proceso tantas beces como posiciones halla
