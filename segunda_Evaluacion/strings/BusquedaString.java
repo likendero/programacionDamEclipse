@@ -36,7 +36,7 @@ public class BusquedaString {
 			if (array[centro].compareTo(elemento) < 0 ) {
 				primero = centro + 1;
 			}else {
-				ultimo = centro - 1;
+				ultimo = centro - 1; 
 			}
 		}
 		return -1;
