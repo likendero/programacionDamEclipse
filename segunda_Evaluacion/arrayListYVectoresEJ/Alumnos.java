@@ -391,7 +391,10 @@ class Asignatura{
 			media += integer.intValue();
 		}
 		//division
+                //control divison por 0
+                if(notas.size() != 0){
 		media /= notas.size();
+                }
 		return media;
 	}
 }
