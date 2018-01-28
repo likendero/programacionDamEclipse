@@ -149,11 +149,18 @@ public class Alumnos {
 	 */
 	private void calculadorNotaFinal() {
 		//calculo notaFinal, media de las notas medias
+		if(this.getAsignaturas() != null) {
 				for (Iterator<Asignatura> iterator = this.asignaturas.iterator(); iterator.hasNext();) {
 					Asignatura asignatura = (Asignatura) iterator.next();
+					if(asignatura.getNotas() != null) {
 					notaFinal += asignatura.notaMedia();
+					}
 				}
+				//curarse en salud con division entre 0
+				if(this.getAsignaturas().size() != 0) {
 				notaFinal /= this.getAsignaturas().size();
+				}
+		}
 	}
 	/**
 	 * metodo que sirve para seleccionar la 
