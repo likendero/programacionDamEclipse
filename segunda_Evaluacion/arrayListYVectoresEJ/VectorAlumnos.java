@@ -44,6 +44,9 @@ public class VectorAlumnos {
 			case 6:
 				mostrarMenosMas(alumnos);
 				break;
+			case 7:
+				nombreApellido(alumnos);
+				break;
 			}
 		}while(!fin);
 	}
@@ -154,6 +157,17 @@ public class VectorAlumnos {
 			System.out.println(alumnos.get(i).toString());
 		}
 	}
+	/**
+	 * ordena los alumno segun nombre y apellido y los muestra por pantalla
+	 * @param alumnos
+	 */
+	public static void nombreApellido(Vector<Alumnos> alumnos) {
+		Alumnos.burbujaMejoradoNombreApellido(alumnos);
+		for (Alumnos alumnos2 : alumnos) {
+			System.out.println(alumnos2.datosAlumno());
+		}
+	}
+	
 }
 
 

@@ -258,6 +258,32 @@ public class Alumnos {
 		this.calculadorNotaFinal();
 	}
 	/**
+	 * ordena un vector de alumnos segun el apellido :D
+	 * @param vectorAlumn
+	 */
+	public static void burbujaMejoradoNombreApellido(Vector<Alumnos> vectorAlumn) {
+		//variable que controla el estado del array
+		boolean control = true;
+		//for que repite el proceso tantas beces como posiciones halla
+		for (int j = 0; j < vectorAlumn.size()-1 && control ; j++) {
+			//for que recorre el array
+			control = false;
+			for (int i = 0; i < vectorAlumn.size()-1-j; i++) {
+				//comparacion de la posicion actual con la siguiente
+				String comprobacion =  vectorAlumn.get(i+1).getApellido() + vectorAlumn.get(i+1).getNombre();
+				String comprobacion2 = vectorAlumn.get(i).getApellido() + vectorAlumn.get(i).getNombre();
+				if(comprobacion.compareTo(comprobacion2) < 0) {
+					//intercambio de valores en el caso que el array siguiente sea menor que el anterior
+					Alumnos aux = new Alumnos(vectorAlumn.get(i));
+					vectorAlumn.set(i, vectorAlumn.get(i+1));
+					vectorAlumn.set(i+1, aux);
+					control = true;
+				}
+			}
+		}
+	}
+	
+	/**
 	 * metodo que ordena un vector de alumnos segun nota final
 	 * @param vectorAlumn
 	 */
