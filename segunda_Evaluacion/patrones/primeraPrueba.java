@@ -22,6 +22,7 @@ public class primeraPrueba {
            cadena = m.replaceAll("");
         }
         //salida 
+        
         System.out.println(cadena.length());
         System.out.println(cadena);
         

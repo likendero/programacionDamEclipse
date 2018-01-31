@@ -8,10 +8,19 @@ public class PalabraPrimeraMayuscula {
 			System.out.println("infroduce una frase");
 			cadena = key.nextLine();
 		}while(cadena == null);
-		for(int i = 0; i < cadena.length() ; i++) {
-			if(cadena.substring(i, i+1).equals("") && Character.isLetter(cadena.charAt(i+1))) {
-				
-			}
+		String cortes[] = cadena.split("\\s");
+		for (int i = 0; i < cortes.length; i++) {
+			System.out.println(cortes[i]);
+		}
+		cadena = "";
+		for (int i = 0; i < cortes.length; i++) {
+			if(cortes[i].length() > 1)
+				cadena += cortes[i].substring(0, 1).toUpperCase() + cortes[i].substring(1, cortes[i].length());
+			else 
+				cadena += cortes[i].substring(0, 1).toUpperCase();
+			cadena += " ";
+		}
+		System.out.println(cadena);
 		}
 	}
-}
+
