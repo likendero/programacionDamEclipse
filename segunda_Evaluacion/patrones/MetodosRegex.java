@@ -16,12 +16,19 @@ public class MetodosRegex {
 		 * extranno
 		 */
 		System.out.println(Pattern.matches(".*[wW].*", cadenaPrueba));
-		Pattern patena = Pattern.compile("[wW]");
+		try {
+		Pattern patena = Pattern.compile("[//s][wW][//s|$]");
 		Matcher macho = patena.matcher(cadenaPrueba);
 		System.out.println("con el metodo group de matcher saldra la palabra que contenia la w o W");
+		
 		if(macho.find()) {
 		System.out.println(cadenaPrueba.substring(macho.start(), macho.end()));
+		System.out.println(macho.group());
 		}
-		//System.out.println(macho.group());
+		}catch (IllegalStateException e) {
+			System.out.println("error" + e);
+			
+		}
+		
 	}
 }
