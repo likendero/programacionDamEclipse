@@ -3,12 +3,13 @@ package excepciones;
 import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 public class Ejercicios {
 	private static Scanner key = new Scanner(System.in);
 	private static BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
 	public static void main(String[] args) {
-		controlMediaBuffer();
+		//controlMediaBuffer();
 		//cotrolMediaScanner();
 		/*try {
 			//validar numero
@@ -27,9 +28,30 @@ public class Ejercicios {
 		}catch(Exception ex) {
 			System.out.println(ex.getMessage());
 		}*/
+		boolean control = false;
+		do {
+			try {
+				System.out.println("escribe un numero del 1 al 100");
+				validarUnoCienv2(entrada.readLine());
+				control = true;
+			}
+			catch(CeroExcepcion cx) {
+				System.out.println(cx.getMessage());
+			}
+			catch(IOException io) {
+				System.out.println(io.getMessage());
+			}
+			catch(Exception ex) {
+				System.out.println(ex.getMessage());
+			}
+		}while(!control);
+		System.out.println("fin del programa");
+		key.close();
 		
 	}
-
+	/**
+	 * media con buffer
+	 */
 	public static void controlMediaBuffer() {
 		int numeros[] = new int[10],media = 0;
 		boolean control = false;
@@ -60,7 +82,7 @@ public class Ejercicios {
 			System.out.println("la media es" + media);
 	}
 	/**
-	 * metodo de prueba para try y catch
+	 * metodo de prueba para try y catch con scanner
 	 */
 	public static void cotrolMediaScanner() {
 		int numeros[] = new int[10],media = 0;
@@ -112,6 +134,11 @@ public class Ejercicios {
 			throw new Exception("no hay caracteres");
 		}
 	}
+	/**
+	 * prueba con throws validando numero de 1 a 100
+	 * @param cadena
+	 * @throws Exception
+	 */
 	public static void validarUnoCien(String cadena)throws Exception{
 		int numero;
 		// recorrido de los elementos de la cadena
@@ -128,5 +155,29 @@ public class Ejercicios {
 		
 
 	}
-	
+	/**
+	 * prueba con excepcion creada
+	 * @param cadena
+	 * @throws CeroExcepcion
+	 * @throws Exception
+	 */
+	public static void validarUnoCienv2(String cadena)throws CeroExcepcion,Exception{
+		int numero;
+		// recorrido de los elementos de la cadena
+		for(int i = 0 ; i < cadena.length(); i++) {
+			//comprobacion de digitos
+			if(!Character.isDigit(cadena.toCharArray()[i])) {
+				throw new Exception("no es un numero");
+			}
+		}
+		numero = Integer.parseInt(cadena);
+		
+		if (numero < 1 || numero > 100) {
+			if(numero == 0)
+				throw new CeroExcepcion();
+			throw new Exception("no esta en rango");
+		}
+		
+
+	}
 }
