@@ -28,7 +28,7 @@ public class Ej6_regex {
 		do {
 			System.out.println("introduce email");
 			persona.setEmail(key.next());
-		}while(persona.getEmail().matches("^\\w*@\\w[.]\\w*$"));
+		}while(!persona.getEmail().matches("^[\\w]+@[\\w]+\\.[\\w]+$"));
 		//introduccion numero fijo
 		do {
 			System.out.println("inroduce nuermo de telefono fijo");
