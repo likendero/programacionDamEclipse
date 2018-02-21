@@ -1,4 +1,4 @@
-package clasesAbstractasç;
+package clasesAbstractas;
 
 public class Circulo extends Figuras{
 	private int radio;

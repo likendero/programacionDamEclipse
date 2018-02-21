@@ -1,4 +1,4 @@
-package clasesAbstractasç;
+package clasesAbstractas;
 
 public class Ballena extends Animales {
 	 private String nombre;

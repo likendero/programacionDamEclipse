@@ -1,4 +1,4 @@
-package clasesAbstractasç;
+package clasesAbstractas;
 
 public abstract class Figuras {
 	/**
@@ -13,13 +13,13 @@ public abstract class Figuras {
 	public abstract int calculoArea();
 	
 public static void main(String[] args) {
-	Figuras figura[] = new Figuras[5];
+	Figuras figura[] = new Figuras[10];
 	//introduccion de rectangulos
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 5; i++) {
 		figura[i] = new Rectangulo(i,i+1); 
 	}
 	//introduccion Circulos
-	for (int i = 3; i < 5 ; i++) {
+	for (int i = 5; i < 10 ; i++) {
 		figura[i] = new Circulo(i+2);
 	}
 	

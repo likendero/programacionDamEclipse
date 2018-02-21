@@ -1,4 +1,4 @@
-package clasesAbstractasç;
+package clasesAbstractas;
 
 public class Rectangulo extends Figuras {
 	private int altura,base;

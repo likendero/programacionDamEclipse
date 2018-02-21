@@ -1,4 +1,4 @@
-package clasesAbstractasç;
+package clasesAbstractas;
 
 public class BarcoPasajeros extends Barcos {
 	private int eslora,numDeCamas;
@@ -37,13 +37,13 @@ public class BarcoPasajeros extends Barcos {
 	@Override
 	public String msgeScocorro() {
 		
-		return null;
+		return "socorro";
 	}
 
 	@Override
 	public String alarma() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return "iceberg a proa";
 	}
 
 }
