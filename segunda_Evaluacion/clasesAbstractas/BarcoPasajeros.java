@@ -34,6 +34,13 @@ public class BarcoPasajeros extends Barcos {
 		this.numDeCamas = numDeCamas;
 	}
 	//####################################################
+	
+	
+	@Override
+	public String toString() {
+		return "BarcoPasajeros [eslora=" + eslora + ", numDeCamas=" + numDeCamas + 
+				msgeScocorro()+ " " + alarma() + "]";
+	}
 	@Override
 	public String msgeScocorro() {
 		
