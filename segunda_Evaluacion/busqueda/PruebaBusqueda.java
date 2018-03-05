@@ -1,6 +1,8 @@
 package busqueda;
 	import java.util.Scanner;
-	import ordenacionArray.OrdenadorArrays;;
+
+import arrayUni.Busqueda;
+import arrayUni.OrdenadorArrays;;
 public class PruebaBusqueda {
 	public static void main(String[] args) {
 		int numeroBusqueda = 0;

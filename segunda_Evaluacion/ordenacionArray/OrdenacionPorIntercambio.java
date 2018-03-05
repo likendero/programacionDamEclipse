@@ -1,5 +1,7 @@
 package ordenacionArray;
 
+import arrayUni.OrdenadorArrays;
+
 public class OrdenacionPorIntercambio {
 	public static void main(String[] args) {
 		//creacion y muestra del array
