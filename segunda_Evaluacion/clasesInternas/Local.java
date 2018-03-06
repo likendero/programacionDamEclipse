@@ -16,6 +16,6 @@ public class Local {
 		bin.otroMetodo();
 		}
 	public static void main(String[] args) {
-		new local().metodo();
+		new Local().metodo();
 	}
 }
