@@ -1,32 +1,28 @@
 package herencia;
-/**
- * 
- * @author liken
- *clase que sirve para definir las caracteristicasd e los turismos Familiares
- */
-public class Familiar extends Turismos {
-	
-	private final String tipo = "FAMILIAR";
+
+public class Utilitario extends Turismos {
+	private final String tipo = "UTILITARIO";
 	/**
-	 * constructor parametrizado, utiliza las caraceristicas de los turismos
+	 * constructor parametrizado con las caracteristicas de turismo
 	 * @param matricula
 	 * @param precioKm
 	 * @param kmPreAlquiler
 	 * @param kmDevolucion
 	 */
-	public Familiar(String matricula, double precioKm, int kmPreAlquiler, int kmDevolucion ) {
-		super(matricula,precioKm,kmPreAlquiler,kmDevolucion);
+	public Utilitario(String matricula, double precioKm, int kmPreAlquiler, int kmDevolucion){
+		super(matricula, precioKm, kmPreAlquiler, kmDevolucion);
 	}
 	/**
-	 * devuelve la clase de turismo
-	 * @return cadena con la clase
+	 * metodo que devileve el tipo de turismo
+	 * @return tipo
 	 */
 	public String getTipo() {
-		return tipo;
+		return this.tipo;
 	}
+	
 	/**
 	 * metodo que sirve para alquiar el vehiculo indicandole el numero 
-	 * de kilometros actual que lleva el turismo(familiar)
+	 * de kilometros actual que lleva el turismo
 	 * @param numKm
 	 */
 	public void alquilar(int numKm) {
@@ -47,7 +43,7 @@ public class Familiar extends Turismos {
 	@Override
 	public void showInfo() {
 		// tipo de vehiculo
-		System.out.println("la clase del vehiculo es Familiar");
+		System.out.println("la clase del vehiculo es Utilitario");
 		// la matricula
 		System.out.printf("la matricula es ", this.getMatricula());
 		// si esta alquilado
@@ -64,17 +60,3 @@ public class Familiar extends Turismos {
 		System.out.printf("numero de turismos alquilados %d",this.getNumTurismosAlquilados());
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -5,6 +5,7 @@
 	<classpathentry kind="src" path="entregaObligatoria03"/>
 	<classpathentry kind="src" path="segunda_Evaluacion"/>
 	<classpathentry kind="src" path="PracticaObligatoria2ev"/>
+	<classpathentry kind="src" path="practica_Extensiones"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
