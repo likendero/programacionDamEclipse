@@ -1,4 +1,4 @@
-package Ejercicio04;
+package herencia;
 	
 public class Fecha {
 	int dia,mes;
