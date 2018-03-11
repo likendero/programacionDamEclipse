@@ -80,7 +80,7 @@ public class Turismos extends Vehiculo {
 		// tipo de vehiculo
 		System.out.println("la clase del vehiculo es TURISMO");
 		// la matricula
-		System.out.printf("la matricula es ", this.getMatricula());
+		System.out.printf("la matricula es ", this.getMatricula(),'\n');
 		// si esta alquilado
 		if(this.isAlquilado()) {
 			//caso afirmativo
@@ -90,9 +90,9 @@ public class Turismos extends Vehiculo {
 		else {
 			System.out.println("el coche no esta alquilado");
 		}
-		System.out.printf("el precio es de %.2f € por kilometro",this.getPrecioKm());
-		System.out.printf("numero de turismos disponibles %d",this.getNumTurismos());
-		System.out.printf("numero de turismos alquilados %d",this.getNumTurismosAlquilados());
+		System.out.printf("el precio es de %.2f ï¿½ por kilometro\n",this.getPrecioKm());
+		System.out.printf("numero de turismos disponibles %d\n",this.getNumTurismos());
+		System.out.printf("numero de turismos alquilados %d\n",this.getNumTurismosAlquilados());
 	}
 	
 }
