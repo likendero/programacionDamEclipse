@@ -1,0 +1,21 @@
+figuras
+calculoArea()
+calculoPerimetro()
+barcos
+msgeScocorro()
+alarma()
+BarcoPasajeros{
+	eslora
+	numDeCamas
+}
+PortaAviones{
+	nAviones
+	tripulacion
+}
+Pesquero{
+	potencia
+	eslora
+	pescadores
+	nombre
+}
+animales
