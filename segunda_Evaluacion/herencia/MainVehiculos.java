@@ -2,6 +2,7 @@ package herencia;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.Iterator;
 public class MainVehiculos {
 	private static Scanner key = new Scanner(System.in);
 	public static ArrayList<Vehiculo> alquilados = new ArrayList<Vehiculo>();
@@ -17,10 +18,14 @@ public class MainVehiculos {
 				System.out.println("3. annadir un vehiculo");
 				System.out.println("4. alquilar 1");
 				System.out.println("5. devolver 1");
+				System.out.println("6. mostrar estado de los vehiculos");
 				System.out.println("0. fin del programa");
 				seleccion = key.nextInt();
 				
 				switch(seleccion) {
+				case 0:
+					control1 = true;
+					break;
 				//caso para introducir los vehiculos de prueba
 				case 1:
 					creacionVehiculosPrueba();
@@ -28,6 +33,9 @@ public class MainVehiculos {
 				// caso para mostrar los vehiculos introducidos 
 				case 2:
 					mostrarVehiculos();
+					break;
+				case 3:
+					annadirVehiculo();
 					break;
 				}
 			}
@@ -70,17 +78,46 @@ public class MainVehiculos {
 			System.out.println();
 		}
 	}
+	/**
+	 * metodo que sirve para introducir vehiculos
+	 */
 	public static void annadirVehiculo() {
 		boolean control2 = false;
 		int seleccion2;
 		do {
 			try {
+				//menu para seleccion que vehiculo introducir
 				System.out.println("que tipo de vehiculo quiere introducir");
 				System.out.println("1. turismo");
-				System.out.println("2. Familiar");
-				System.out.println("3. Utilitario");
+				System.out.println("2. familiar");
+				System.out.println("3. turismo");
 				System.out.println("4. Camion");
 				seleccion2 = key.nextInt();
+				switch(seleccion2) {
+				//turirmos
+				case 1:
+					key.nextLine();
+					alquilados.add(IntroduccionVehiculos.introducirTurismo(key));
+					break;
+				//familar
+				case 2:
+					key.nextLine();
+					alquilados.add((Familiar)IntroduccionVehiculos.introduccionFamiliarTurismo(key));
+					break;
+				//utilitario
+				case 3:
+					key.nextLine();
+					alquilados.add((Utilitario)IntroduccionVehiculos.introduccionFamiliarTurismo(key));
+					break;
+				// camion
+				case 4:
+					key.nextLine();
+					alquilados.add(IntroduccionVehiculos.introduccionCamion(key));
+					break;
+				default: 
+					System.out.println("opcion no valida");
+				}
+				control2 = true;
 				} 
 			catch(InputMismatchException in) {
 				System.out.println("error en la introduccion de texto");
@@ -90,7 +127,24 @@ public class MainVehiculos {
 			}
 		}while(!control2);
 	}
-	
+	public static void alquilar() {
+		String busqueda = "";
+		key.nextLine();
+		// comprobacion de si esta bacio
+		if(!alquilados.isEmpty()) {
+			System.out.println("introduce la matricula a buscar");
+			busqueda = key.nextLine();
+			for (Vehiculo vehiculo : alquilados) {
+				if(vehiculo.getMatricula().equals(busqueda)) {
+					if(vehiculo.getClass() == Familiar.class) {
+						(Turismos)vehiculo;
+					}
+					
+				}
+			}
+		}
+		
+	}
 	
 	
 	
