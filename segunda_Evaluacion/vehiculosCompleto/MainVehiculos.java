@@ -1,4 +1,4 @@
-package herencia;
+package vehiculosCompleto;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
