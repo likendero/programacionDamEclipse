@@ -77,7 +77,7 @@ public class MainVehiculos {
 		//ejemplo utilitario
 		alquilados.add(new Utilitario("0003", 444 , 1, 4000));
 		// ejemplo camion
-		alquilados.add(new Camiones("Al 3333 ZZZ", 1000, new Fecha(4,2,1998),new Fecha(9,4,1998)));
+		alquilados.add(new Camiones("AL 12345", 1000, new Fecha(4,2,1998),new Fecha(9,4,1998)));
 }
 	/**
 	 * metodo que sirve para mostrar por pantalla
