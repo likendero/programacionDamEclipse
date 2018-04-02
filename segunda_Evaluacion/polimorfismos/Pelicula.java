@@ -55,5 +55,15 @@ public class Pelicula extends Multimedia {
 	}
 	////////////////////////////////////////////////////////////////////////////////////
 	
+	@Override
+	public String toString () {
+		return super.toString() + "Pelicula = [ actor = " + this.getActor() + " actriz = " + this.getActriz() + " ]" ;
+	}
 	
 }
+
+
+
+
+
+
