@@ -7,7 +7,7 @@ public class leer {
      * @param args
      */
     public static void main(String[] args){
-        try(InputStreamReader entrada = new InputStreamReader("archivo2.bin")){
+        /*try(InputStreamReader entrada = new InputStreamReader("archivo2.bin")){
             BufferedReader lector = new BufferedReader(entrada);
             System.out.println(lector.read());
             System.out.println(forma.readShort());
@@ -18,6 +18,6 @@ public class leer {
         }
         catch(Exception ex){
             ex.printStackTrace();
-        }
+        }*/
     }
 }
