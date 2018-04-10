@@ -12,6 +12,7 @@ public class dataInOut {
      */
     public static void main(String[] args){
         try {
+
             //creacion de flujo
             FileOutputStream salida = new FileOutputStream("archivo.bin",true);
             // flujo de datos
