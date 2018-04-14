@@ -1,5 +1,6 @@
 package archivosObjetos;
 import java.io.*;
+import java.util.GregorianCalendar;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -68,6 +69,7 @@ public class MainPublicaciones {
                 introduccion = key.nextInt();
                 switch (introduccion){
                     case 1:
+                        introducirLibro();
                         break;
                     case 2:
                         break;
@@ -82,6 +84,9 @@ public class MainPublicaciones {
                 System.out.println("entrada incorrecta");
                 key.nextLine();
             }
+            catch(IncorrectDataException da){
+                System.out.println(da.getMessage());
+            }
             catch(Exception ex){
                 ex.printStackTrace();
                 key.nextLine();
@@ -90,20 +95,55 @@ public class MainPublicaciones {
     }
 
     /**
-     * metodo que sirve para introducir un objeto del tipo libre en
+     * metodo que sirve para introducir un objeto del tipo libro en
      */
-    private static void introducirLibro(){
+    private static void introducirLibro()throws IncorrectDataException{
         Libros libro = new Libros();
-        try{
-            System.out.println("introduce isbn");
-            libro.setIsbn(key.next());
+        // TODO la parte correspondiente al libro
+        // ISBN
+        System.out.println("introduce isbn");
+        libro.setIsbn(key.next());
+        if(true){
+            throw new IncorrectDataException("ERROR en el ISBN del libro");
         }
-        catch(InputMismatchException){
 
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    }
+
+    /**
+     * metodo que sirve para introducir una nueva revista
+     */
+    private static void introducirRevista(){
+        // TODO la parte correspondiente a la Revista
+    }
+
+    /**
+     * metodo que sirve para crear una publicacion
+     */
+    private static Publicaciones crearPublicacion() throw IncorrectDataException{
+        //creacion de la instancia contenedor
+        Publicaciones publicacion = new Publicaciones();
+        // creacion del contenedor de la fecha
+        int anno, dia, mes;
+        // introduccion del titulo
+        System.out.println("introduce el titulo de la publicacion");
+        publicacion.setTitulo(key.nextLine());
+
+        // introduccion del editor
+        System.out.println("introduce el editor");
+        publicacion.setEditor(key.nextLine());
+
+        // introduccion de la fecha
+        System.out.println("introduce el anno");
+        anno = key.nextInt();
+        System.out.println("introduce el mes");
+        mes = key.nextInt();
+        System.out.println("introduce el dia");
+        dia = key.nextInt();
+
+
+
+
+
     }
 
 }
