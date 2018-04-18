@@ -1,5 +1,4 @@
-package binarios;
-import com.sun.org.apache.bcel.internal.generic.ALOAD;
+package ej2_ej3;
 
 import java.io.*;
 import java.util.InputMismatchException;
@@ -25,7 +24,7 @@ public class AlumnosConMenu {
     public static void main(String[] args){
         int introduccion = 0;
         boolean control = false;
-        File archivo = new File("registroAlumnos.bin");
+        File archivo = PrincipalAlumnos.cogerArchivo();
         if(archivo.exists()) {
             cargarAlumnos(archivo);
             do
@@ -52,6 +51,7 @@ public class AlumnosConMenu {
                             break;
                         // alumnos con peor nota
                         case 3:
+                            menorNota();
                             break;
                         case 0:
                             control = true;
@@ -110,6 +110,9 @@ public class AlumnosConMenu {
         System.out.printf("la nota media es %d\n",(sumatoria/contador));
     }
 
+    /**
+     * metodo que saca por pantalla el alumno/os con la nota mas alta
+     */
     public static void mayorNota(){
         // variable para controlar la mayor nota
         short notaDominante = Short.MIN_VALUE;
@@ -128,5 +131,25 @@ public class AlumnosConMenu {
         }
     }
 
+    /**
+     * metodo que saca por pantalla el alumno con la menor nota
+     */
+    public static void menorNota(){
+        // variable para controlar la mayor nota
+        short notaDominante = Short.MAX_VALUE;
+        // lectura de las notas
+        for(Alumnos al: alumnos) {
+            // comparacion de nota actual
+            if(al.getNotaMedia() < notaDominante)
+                notaDominante = al.getNotaMedia();
+
+        }
+        System.out.println("alumnos con las notas mas bajas");
+        // salida de las notas mas altas
+        for(Alumnos al: alumnos){
+            if(al.getNotaMedia() ==  notaDominante)
+                System.out.printf("nombre: %s nota: %d \n2",al.getNombre(),al.getNotaMedia());
+        }
+    }
 
 }

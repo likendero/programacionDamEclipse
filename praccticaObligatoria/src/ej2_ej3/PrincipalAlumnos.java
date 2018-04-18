@@ -1,13 +1,22 @@
-package binarios;
+package ej2_ej3;
 import java.io.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+/**
+ * clase que sirve para introducir alumnos en un archivo binario
+ * y despues muestra la informacion introducida
+ * @author Javier Gonzalez Rives
+ */
 public class PrincipalAlumnos {
     private static Scanner key = new Scanner(System.in);
+    private static File archivo = new File("c:/Ficheros","registroAlumnos.bin");
     public static void main(String[] args){
         int rep = 1;
         boolean control = false;
-        File archivo = new File("registroAlumnos.bin");
+        if(!archivo.exists()){
+            archivo.mkdir();
+        }
         // introduccion numero de repeticiones
         do
             try {
@@ -34,9 +43,10 @@ public class PrincipalAlumnos {
                 do {
                     System.out.println("introduce el nombre del alumno");
                     alumno.setNombre(key.next());
+                    key.nextLine();
                     //se controla que no tenga numeros en el nombre (ser rey no lo cambia)
-                } while (!alumno.getNombre().matches("^[a-z A-Z]+"));
-                key.nextLine();
+                } while (alumno.getNombre() == null);
+
 
                 //introduccion de la direccion
                 System.out.println("introduce la direccion del alumno");
@@ -71,6 +81,7 @@ public class PrincipalAlumnos {
                     salida.close();
                 }catch(IOException io){
                     System.out.println("ERROR EN LA ESCRITURA");
+                    io.printStackTrace();
                 }
 
             } catch (InputMismatchException in) {
@@ -116,6 +127,14 @@ public class PrincipalAlumnos {
             ex.printStackTrace();
         }
 
+    }
+
+    /**
+     * metodo que sirve para exportar la informacion del fichero a otros porgramas
+     * @return el fichero con su directorio y nombre del fichero.
+     */
+    public static File cogerArchivo(){
+        return archivo;
     }
 
 }

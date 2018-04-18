@@ -1,12 +1,9 @@
-package archivos;
+package ej4;
 
 import java.io.*;
 import java.util.Scanner;
-/**
- * clase que sirve para introducir una ruta por teclado y una palabra para buscar
- * @author Javier Gonzalez Rives
- */
-public class Ej7 {
+
+public class ej6 {
     public static Scanner key = new Scanner(System.in);
     /**
      * main
