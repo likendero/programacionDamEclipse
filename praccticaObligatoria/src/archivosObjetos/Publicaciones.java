@@ -22,12 +22,20 @@ public class Publicaciones implements Serializable {
         fecha = null;
     }
 
+    /**
+     * constructor de clase
+     * @param titulo
+     * @param editor
+     * @param fecha
+     */
     public Publicaciones(String titulo, String editor, GregorianCalendar fecha){
         super();
         this.titulo = titulo;
         this.editor = editor;
         this.fecha = fecha;
     }
+
+
     // GETTERS SETTERS
     public String getTitulo() {
         return titulo;

@@ -8,6 +8,14 @@ public class Revistas extends Publicaciones {
     public long circulacion;
 
     // constructores
+
+    /**
+     * cosntructor por defecto
+     */
+    public Revistas(){
+        super();
+    }
+
     public Revistas(int numerosPorAnno, long circulacion) {
         this.numerosPorAnno = numerosPorAnno;
         this.circulacion = circulacion;
@@ -17,6 +25,14 @@ public class Revistas extends Publicaciones {
         super(titulo, editor, fecha);
         this.numerosPorAnno = numerosPorAnno;
         this.circulacion = circulacion;
+    }
+    public Revistas(Publicaciones publicaciones,Revistas revistas){
+        super(publicaciones.getTitulo(),
+              publicaciones.getEditor(),
+              publicaciones.getFecha());
+
+        this.circulacion = revistas.getCirculacion();
+        this.numerosPorAnno = revistas.getNumerosPorAnno();
     }
     // GETTERS SETTERS
     public int getNumerosPorAnno() {

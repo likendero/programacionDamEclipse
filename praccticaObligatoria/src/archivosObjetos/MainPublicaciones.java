@@ -1,4 +1,5 @@
 package archivosObjetos;
+import java.io.*;
 import java.util.GregorianCalendar;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -27,11 +28,13 @@ public class MainPublicaciones {
                 System.out.println("2. mostrar publicaciones");
                 System.out.println("0. salir del programa");
                 introduccion = key.nextInt();
+                key.nextLine(); // limpieza buffer
                 switch (introduccion){
                     case 1:
                         menuIntroduccion();
                         break;
                     case 2:
+
                         break;
                     // FIN DEL PROGRAMA
                     case 0:
@@ -66,13 +69,18 @@ public class MainPublicaciones {
             try{
                 System.out.println("1. libro 2. revista 3. volver");
                 introduccion = key.nextInt();
+                key.nextLine();
                 switch (introduccion){
+                    // introducir libros
                     case 1:
                         introducirLibro();
                         break;
+                    // introducir revista
                     case 2:
+                        introducirRevista();
                         break;
-                    case 0:
+                    case 3:
+                        control = true;
                         break;
                     default:
                         System.out.println("opcion no valida");
@@ -82,9 +90,6 @@ public class MainPublicaciones {
             catch(InputMismatchException in){
                 System.out.println("entrada incorrecta");
                 key.nextLine();
-            }
-            catch(IncorrectDataException da){
-                System.out.println(da.getMessage());
             }
             catch(Exception ex){
                 ex.printStackTrace();
@@ -97,28 +102,78 @@ public class MainPublicaciones {
      * metodo que sirve para introducir un objeto del tipo libro en
      */
     private static void introducirLibro()throws IncorrectDataException {
-        Libros libro = new Libros();
-        // TODO la parte correspondiente al libro
-        // ISBN
-        System.out.println("introduce isbn");
-        libro.setIsbn(key.next());
-        if(true){
-            throw new IncorrectDataException("ERROR en el ISBN del libro");
-        }
+        boolean control = false;
+        do {
+            try {
 
+                Libros libro = new Libros();
+                Publicaciones pub = crearPublicacion();
+                // INTRODUCCIONES
+                do {
+                    // ISBN
+                    System.out.println("introduce isbn(solo 10 numeros)");
+                    libro.setIsbn(key.next());
+                    key.nextLine(); // limpieza buffer
+                } while (!libro.getIsbn().matches("^[0-9]{10}"));
+                do {
+                    // AUTOR
+                    System.out.println("introduce el nombre del autor");
+                    libro.setAutor(key.next());
+                    key.nextLine();
+                } while (!libro.getAutor().matches("^[a-z A-Z]+"));
+                // creacion del libro final
+                libro = new Libros(pub, libro);
+                // escritura en el archivo
+                preEscritorPubliacion(libro);
+                control = true;
+            } catch (InputMismatchException in) {
+                System.out.println("error en la introduccion");
+                key.nextLine();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
+        }while(!control);
     }
 
     /**
      * metodo que sirve para introducir una nueva revista
+     * con todos sus datos
      */
     private static void introducirRevista(){
-        // TODO la parte correspondiente a la Revista
+        boolean control = false;
+        do {
+            try {
+                // creacion de la revista y de la publicacion
+                Revistas revista = new Revistas();
+                Publicaciones pub = crearPublicacion();
+                // introduccion de la circulacion
+                do{
+                    System.out.println("introduce el numero de la circulacion");
+                    revista.setCirculacion(key.nextLong());
+                }while(revista.getCirculacion() <= 0);
+                // introduccion nº tirada
+                do{
+                    System.out.println("introduce numero de ejemplares por anno");
+                    revista.setCirculacion(key.nextLong());
+                }while(revista.getNumerosPorAnno() < 0);
+                revista = new Revistas(pub,revista);
+                preEscritorPubliacion(revista);
+                control = true;
+            } catch (InputMismatchException in) {
+                System.out.println("error en la introduccion");
+                key.nextLine();
+            }catch (Exception ex){
+                ex.printStackTrace();
+            }
+        }while(!control);
+
     }
 
     /**
      * metodo que sirve para crear una publicacion
      */
-    private static Publicaciones crearPublicacion() throws IncorrectDataException {
+    private static Publicaciones crearPublicacion()  {
         //creacion de la instancia contenedor
         Publicaciones publicacion = new Publicaciones();
         // creacion del contenedor de la fecha
@@ -143,9 +198,71 @@ public class MainPublicaciones {
         // agregacion del calendario
         publicacion.setFecha(calendario);
         return publicacion;
-
-
-
     }
 
+    /**
+     * metodo que crea la ruta y prepara el flujo
+     * @param pub
+     */
+    public static void preEscritorPubliacion(Publicaciones pub){
+        try{
+            // creacion del objeto fichero
+            File archivo = new File("c:/ficheros","publicaciones.obj");
+            // en el caso que exista crea el flujo
+            if(archivo.exists()){
+                FileOutputStream flujo = new FileOutputStream(archivo);
+                escritorPublicacionesExiste(flujo,pub);
+                System.out.println("escrito");
+                flujo.close();
+            }else{
+                // creacion del directorio
+                if(new File(archivo.getParent()).mkdirs()){
+                    System.out.println("directorio creado");
+                }
+                // creacion del flujo
+                FileOutputStream flujo = new FileOutputStream(archivo);
+                escritorPublicacionesNoEx(flujo,pub);
+                System.out.println("escrito");
+                flujo.close();
+            }
+        }catch (FileNotFoundException fi){
+            System.out.println("archivo no encontrado");
+        }catch(IOException io){
+            System.out.println("error escritura");
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * metodo que escribe la publicacion creada en el caso que todabia no exista el archivo
+     * @param flujo salida de byts al archivo
+     * @param pub publicacion anteriormente creada
+     * @throws IOException
+     * @throws FileNotFoundException
+     */
+    private static void escritorPublicacionesExiste(FileOutputStream flujo,Publicaciones pub)throws IOException,FileNotFoundException{
+        // creacion del escritor objeto
+        ObjectOutputStream escritor = new ObjectOutputStream(flujo);
+        // escritura
+        escritor.writeObject(pub);
+        // cerrado
+        escritor.close();
+    }
+
+    /**
+     * metodo que escribe la publicacion creada pero en el caso que el fichero ya exista
+     * @param flujo salida de bites al archivo
+     * @param pub publicacion creada
+     * @throws IOException
+     * @throws FileNotFoundException
+     */
+    private static void escritorPublicacionesNoEx(FileOutputStream flujo,Publicaciones pub)throws IOException,FileNotFoundException{
+        // creacion del escritor objeto
+        ObjectCreado escritor = new ObjectCreado(flujo);
+        // escritura
+        escritor.writeObject(pub);
+        // cerrado
+        escritor.close();
+    }
 }
