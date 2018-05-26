@@ -30,7 +30,7 @@ public class Ej7 {
                 /*
                  en el caso de que no sea un direcctorio con un fichero o la cadena se encuentre vacia
                  */
-                if(archivo.isAbsolute()){
+                if(archivo.exists()){
                     control = true;
                 }else{
                     System.out.println("directorio no valido");

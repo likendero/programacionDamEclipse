@@ -119,7 +119,7 @@ public class MainPublicaciones {
     /**
      * metodo que sirve para crear una publicacion
      */
-    private static Publicaciones crearPublicacion() throw IncorrectDataException{
+    private static Publicaciones crearPublicacion() throws IncorrectDataException{
         //creacion de la instancia contenedor
         Publicaciones publicacion = new Publicaciones();
         // creacion del contenedor de la fecha
@@ -139,10 +139,18 @@ public class MainPublicaciones {
         mes = key.nextInt();
         System.out.println("introduce el dia");
         dia = key.nextInt();
+<<<<<<< HEAD
         GregorianCalendar calen = new GregorianCalendar(anno,mes,dia);
         
 
 
+=======
+        // instanciacion del calendario
+        GregorianCalendar calendario = new GregorianCalendar(anno,mes,dia);
+        // agregacion del calendario
+        publicacion.setFecha(calendario);
+        return publicacion;
+>>>>>>> master
 
 
     }
