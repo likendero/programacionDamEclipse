@@ -26,7 +26,7 @@ public class Panel1 extends JPanel {
 		JRadioButton marcs[] = new JRadioButton[3];
 		// instanciacion
 		Font fuente = new Font("Times new roman",Font.BOLD , 12);
-		int x = 50 ,y = 20;
+		int x = 50 ,y = 30;
 		JLabel etiqueta = new JLabel("seleccione algo pls");
 		etiqueta.setBounds(50, y, 120, 20);
 		etiqueta.setFont(fuente);
