@@ -139,11 +139,30 @@ public class MainPublicaciones {
         mes = key.nextInt();
         System.out.println("introduce el dia");
         dia = key.nextInt();
-
+        GregorianCalendar calen = new GregorianCalendar(anno,mes,dia);
+        
 
 
 
 
     }
+    private static boolean valCalendario(int anno, int mes, int dia) {
+    	
+    	if() {
+    		
+    	}
+    	
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
